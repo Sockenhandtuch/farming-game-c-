@@ -3,68 +3,54 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	String direction = "side";
-	private AnimatedSprite2D animatedSprite;
+    private AnimatedSprite2D animatedSprite;
 
-	public override void _Ready()
-	{
-		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-	}
+    private string direction = "down";
 
-	private void updateSprite(Vector2 inputDirection)
-	{
-		if (inputDirection != Vector2.Zero)
-		{
+    [Export]
+    public float Speed = 150f;
 
-			if (Math.Abs(inputDirection.X) > Math.Abs(inputDirection.Y))
-			{
-				direction = "side";
-				if (inputDirection.X < 0)
-				{
-					// animated_sprite.flip_h = false
-					animatedSprite.FlipH=false;
-				}
-				else
-				{
-					//animated_sprite.flip_h = true
-					animatedSprite.FlipH=true;
-				}
-			}
-			else
-			{
-				//animated_sprite.flip_h = false
-				animatedSprite.FlipH=false;
+    public override void _Ready()
+    {
+        animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+    }
 
-				if (inputDirection.Y < 0)
-				{
-					direction = "up";
-				}
-				else
-				{
-					direction = "down";
-				}
-			}
-			//animatedsprite.play("walk" + direction)
-			animatedSprite.Play(direction);
-		}
-		else
-		{
-			//animatedsprite.play("idle" + direction)
-			animatedSprite.Play("idle");
-		}
-	}
-	private Vector2 GetInputDirection()
-	{
-		return Input.GetVector("left", "right", "up", "down");
-	}
+    public override void _PhysicsProcess(double delta)
+    {
+        Vector2 input = Input.GetVector("left", "right", "up", "down");
 
-	public const float Speed = 300.0f;
+        Velocity = input * Speed;
+        MoveAndSlide();
 
-	public override void _PhysicsProcess(double delta)
-	{
-	Vector2 inputDirection = GetInputDirection();
-	updateSprite(inputDirection);
+        UpdateAnimation(input);
+    }
 
-	}
+    private void UpdateAnimation(Vector2 input)
+    {
+        // Spieler bewegt sich
+        if (input != Vector2.Zero)
+        {
+            if (Math.Abs(input.X) > Math.Abs(input.Y))
+            {
+                direction = "side";
+                animatedSprite.FlipH = input.X > 0;
+            }
+            else
+            {
+                animatedSprite.FlipH = false;
 
+                if (input.Y < 0)
+                    direction = "up";
+                else
+                    direction = "down";
+            }
+
+            animatedSprite.Play("walk_" + direction);
+        }
+        // Spieler steht
+        else
+        {
+            animatedSprite.Play("idle_" + direction);
+        }
+    }
 }
