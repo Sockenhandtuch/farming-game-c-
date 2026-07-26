@@ -1,19 +1,39 @@
 using Godot;
 using System;
+using FarmGame.Tools;
+using FarmGame.Player;
 
 public partial class Player : CharacterBody2D
 {
-    private AnimatedSprite2D animatedSprite;
-
-    private string direction = "down";
+    [Export]
+    public ToolData CurrentTool;
 
     [Export]
     public float Speed = 150f;
 
+    private AnimatedSprite2D animatedSprite;
+    private ToolController _toolController;
+    private Marker2D interactionPoint;
+
+    private string direction = "down";
+
+
     public override void _Ready()
     {
         animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        _toolController = GetNode<ToolController>("ToolController");
+        interactionPoint = GetNode<Marker2D>("InteractionPoint");
     }
+
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsActionPressed("use_tool"))
+        {
+            _toolController.UseTool();
+        }
+    }
+
 
     public override void _PhysicsProcess(double delta)
     {
@@ -23,11 +43,34 @@ public partial class Player : CharacterBody2D
         MoveAndSlide();
 
         UpdateAnimation(input);
+        UpdateInteractionPoint();
     }
+
+
+    private void UpdateInteractionPoint()
+    {
+        switch (direction)
+        {
+            case "up":
+                interactionPoint.Position = new Vector2(0, -16);
+                break;
+
+            case "down":
+                interactionPoint.Position = new Vector2(0, 16);
+                break;
+
+            case "side":
+                if (animatedSprite.FlipH)
+                    interactionPoint.Position = new Vector2(16, 0);
+                else
+                    interactionPoint.Position = new Vector2(-16, 0);
+                break;
+        }
+    }
+
 
     private void UpdateAnimation(Vector2 input)
     {
-        // Spieler bewegt sich
         if (input != Vector2.Zero)
         {
             if (Math.Abs(input.X) > Math.Abs(input.Y))
@@ -47,7 +90,6 @@ public partial class Player : CharacterBody2D
 
             animatedSprite.Play("walk_" + direction);
         }
-        // Spieler steht
         else
         {
             animatedSprite.Play("idle_" + direction);
