@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ToolData" format=3 uid="uid://ccqamtftgqy3p"]
+
+[ext_resource type="Script" uid="uid://8ylovi8wdjx3" path="res://Scripts/Tools/ToolData.cs" id="1_gsjfd"]
+
+[resource]
+script = ExtResource("1_gsjfd")
+ToolName = "Spitzhacke"
+ToolType = 3
+metadata/_custom_type_script = "uid://8ylovi8wdjx3"

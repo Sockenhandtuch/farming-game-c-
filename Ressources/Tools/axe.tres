@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ToolData" format=3 uid="uid://docluxud56h8r"]
+
+[ext_resource type="Script" uid="uid://8ylovi8wdjx3" path="res://Scripts/Tools/ToolData.cs" id="1_e5hjw"]
+
+[resource]
+script = ExtResource("1_e5hjw")
+ToolName = "Axt"
+ToolType = 2
+metadata/_custom_type_script = "uid://8ylovi8wdjx3"

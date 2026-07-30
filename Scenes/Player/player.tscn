@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bfb351shvjag4" path="res://Scripts/Player/Player.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b7gct4veslm4c" path="res://Assets/farmingTilesheetComplete.png" id="1_v0iea"]
+[ext_resource type="Resource" uid="uid://dfdqjcqgukvl7" path="res://Ressources/Tools/hoe.tres" id="2_mtuoh"]
+[ext_resource type="Script" uid="uid://bnkyj8fixivsy" path="res://Scripts/Player/ToolController.cs" id="3_xpcdj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
 atlas = ExtResource("1_v0iea")
@@ -126,6 +128,7 @@ size = Vector2(5, 10.5)
 [node name="Player" type="CharacterBody2D" unique_id=680326555]
 motion_mode = 1
 script = ExtResource("1_cvnsp")
+CurrentTool = ExtResource("2_mtuoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1752050675]
 sprite_frames = SubResource("SpriteFrames_f60y1")
@@ -139,6 +142,7 @@ shape = SubResource("RectangleShape2D_v0iea")
 zoom = Vector2(3, 3)
 
 [node name="ToolController" type="Node" parent="." unique_id=1104625670]
+script = ExtResource("3_xpcdj")
 
 [node name="InteractionPoint" type="Marker2D" parent="." unique_id=816210315]
 position = Vector2(0, 16)

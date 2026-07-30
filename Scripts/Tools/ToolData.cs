@@ -1,21 +1,20 @@
 using Godot;
-using FarmGame.Tools;
 
-[GlobalClass]
-public partial class ToolData : Resource
+namespace FarmGame.Tools
 {
-    [Export]
-    public string ToolName = "";
+    [GlobalClass]
+    public partial class ToolData : Resource
+    {
+        [Export]
+        public string ToolName { get; set; } = "";
 
-    [Export]
-    public ToolType ToolType = ToolType.None;
+        [Export]
+        public ToolType ToolType { get; set; } = ToolType.Hoe;
 
-    [Export]
-    public Texture2D Icon;
+        [Export]
+        public Texture2D Icon { get; set; }
 
-    [Export]
-    public int Power = 1;
-
-    [Export]
-    public float UseCooldown = 0.3f;
+        [Export]
+        public int Power { get; set; } = 1;
+    }
 }

@@ -8,7 +8,7 @@ public partial class ToolController : Node
     [Export]
     public ToolData CurrentTool;
 
-    public void UseTool()
+    public void UseTool(Vector2 worldPosition)
     {
         if (CurrentTool == null)
             return;

@@ -1,12 +1,11 @@
-namespace FarmGame.Tools;
-
-public enum ToolType
+namespace FarmGame.Tools
 {
-    None,
-    Hoe,
-    Axe,
-    Pickaxe,
-    WateringCan,
-    Scythe,
-	shovel
+    public enum ToolType
+    {
+        Hoe,
+        Axe,
+        Pickaxe,
+        WateringCan,
+        Scythe
+    }
 }
