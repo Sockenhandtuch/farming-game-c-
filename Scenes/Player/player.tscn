@@ -2,8 +2,17 @@
 
 [ext_resource type="Script" uid="uid://bfb351shvjag4" path="res://Scripts/Player/Player.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b7gct4veslm4c" path="res://Assets/farmingTilesheetComplete.png" id="1_v0iea"]
+[ext_resource type="Resource" uid="uid://docluxud56h8r" path="res://Ressources/Tools/axe.tres" id="2_gk6dx"]
 [ext_resource type="Resource" uid="uid://dfdqjcqgukvl7" path="res://Ressources/Tools/hoe.tres" id="2_mtuoh"]
 [ext_resource type="Script" uid="uid://bnkyj8fixivsy" path="res://Scripts/Player/ToolController.cs" id="3_xpcdj"]
+[ext_resource type="Resource" uid="uid://lo65wvob4tou" path="res://Ressources/Tools/scythe.tres" id="4_jhyir"]
+[ext_resource type="Resource" uid="uid://c2hw6rehev376" path="res://Ressources/Tools/shovel.tres" id="5_74mp2"]
+[ext_resource type="Resource" uid="uid://ccqamtftgqy3p" path="res://Ressources/Tools/pickaxe.tres" id="6_oikmp"]
+[ext_resource type="Resource" uid="uid://dcse4l1tp0s71" path="res://Ressources/Tools/watering_can.tres" id="7_06tpx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("1_v0iea")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
 atlas = ExtResource("1_v0iea")
@@ -12,10 +21,6 @@ region = Rect2(96, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
 atlas = ExtResource("1_v0iea")
 region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
-atlas = ExtResource("1_v0iea")
-region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -57,6 +62,14 @@ region = Rect2(80, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pu2lt")
 }],
 "loop": 1,
@@ -69,14 +82,6 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fkybt")
-}],
-"loop": 1,
-"name": &"ilde_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -126,13 +131,14 @@ animations = [{
 size = Vector2(5, 10.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=680326555]
+position = Vector2(0, -2)
 motion_mode = 1
 script = ExtResource("1_cvnsp")
-CurrentTool = ExtResource("2_mtuoh")
+Tools = Array[Object]([ExtResource("2_gk6dx"), ExtResource("2_mtuoh"), ExtResource("4_jhyir"), ExtResource("5_74mp2"), ExtResource("6_oikmp"), ExtResource("7_06tpx")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1752050675]
 sprite_frames = SubResource("SpriteFrames_f60y1")
-animation = &"walk_side"
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1162871547]
 position = Vector2(0, 1.25)
@@ -145,5 +151,4 @@ zoom = Vector2(3, 3)
 script = ExtResource("3_xpcdj")
 
 [node name="InteractionPoint" type="Marker2D" parent="." unique_id=816210315]
-position = Vector2(0, 16)
 gizmo_extents = 16.0

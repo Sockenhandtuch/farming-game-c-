@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_kbplp")
 ToolName = "Sense"
-ToolType = 5
+ToolType = 4
 metadata/_custom_type_script = "uid://8ylovi8wdjx3"

@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_e5hjw")
 ToolName = "Axt"
-ToolType = 2
+ToolType = 1
 metadata/_custom_type_script = "uid://8ylovi8wdjx3"

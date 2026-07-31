@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_fa27x")
 ToolName = "Schaufel"
-ToolType = 6
+ToolType = 5
 metadata/_custom_type_script = "uid://8ylovi8wdjx3"

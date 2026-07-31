@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_gsjfd")
 ToolName = "Spitzhacke"
-ToolType = 3
+ToolType = 2
 metadata/_custom_type_script = "uid://8ylovi8wdjx3"

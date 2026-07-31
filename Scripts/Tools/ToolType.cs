@@ -6,6 +6,7 @@ namespace FarmGame.Tools
         Axe,
         Pickaxe,
         WateringCan,
-        Scythe
+        Scythe,
+        Shovel
     }
 }

@@ -7,6 +7,8 @@ namespace FarmGame.Player
     public partial class Player : CharacterBody2D
     {
         [Export]
+        public ToolData[] Tools;
+
         public ToolData CurrentTool;
 
         [Export]
@@ -15,6 +17,7 @@ namespace FarmGame.Player
         private AnimatedSprite2D animatedSprite;
         private ToolController _toolController;
         private Marker2D interactionPoint;
+        private ToolWheel _toolWheel;
 
         private string direction = "down";
 
@@ -24,9 +27,16 @@ namespace FarmGame.Player
             animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
             _toolController = GetNode<ToolController>("ToolController");
             interactionPoint = GetNode<Marker2D>("InteractionPoint");
+            _toolWheel = GetNode<ToolWheel>("%ToolWheel");
 
-            // Aktuell ausgewähltes Werkzeug an den ToolController übergeben
-            _toolController.CurrentTool = CurrentTool;
+            _toolWheel.ToolSelected += OnToolSelected;
+
+            // Erstes Werkzeug aus der Liste als Startwerkzeug setzen
+            if (Tools != null && Tools.Length > 0)
+            {
+                CurrentTool = Tools[0];
+                _toolController.CurrentTool = CurrentTool;
+            }
         }
 
 
@@ -36,6 +46,20 @@ namespace FarmGame.Player
             {
                 _toolController.UseTool(interactionPoint.GlobalPosition);
             }
+
+            if (@event is InputEventMouseButton mb && mb.ButtonIndex == MouseButton.Right && mb.Pressed)
+            {
+                _toolWheel.Open(Tools);
+            }
+        }
+
+
+        private void OnToolSelected(ToolData tool)
+        {
+            CurrentTool = tool; // kann auch null sein = "kein Werkzeug"
+            _toolController.CurrentTool = CurrentTool;
+
+            GD.Print("Werkzeug ausgewählt: " + (CurrentTool != null ? CurrentTool.ToolName : "Keins"));
         }
 
 

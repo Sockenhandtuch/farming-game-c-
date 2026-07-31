@@ -34,6 +34,10 @@ public partial class ToolController : Node
             case ToolType.Scythe:
                 GD.Print("Sense benutzt");
                 break;
+
+            case ToolType.Shovel:
+                GD.Print("Schaufel benutzt");
+                break;
         }
     }
 }

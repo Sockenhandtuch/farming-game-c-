@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_a5enh")
 ToolName = "Gießkanne"
-ToolType = 4
+ToolType = 3
 metadata/_custom_type_script = "uid://8ylovi8wdjx3"

@@ -5,5 +5,4 @@
 [resource]
 script = ExtResource("1_sykfx")
 ToolName = "Hacke"
-ToolType = 1
 metadata/_custom_type_script = "uid://8ylovi8wdjx3"
