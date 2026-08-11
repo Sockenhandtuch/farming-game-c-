@@ -74,7 +74,7 @@ namespace FarmGame.Player
             UpdateInteractionPoint();
         }
 
-
+        
         private void UpdateInteractionPoint()
         {
             switch (direction)
