@@ -1,13 +1,12 @@
-[gd_scene format=4 uid="uid://chkd3vkraihg2"]
+[gd_scene format=4 uid="uid://dxy5er8rqn0lx"]
 
-[ext_resource type="Texture2D" uid="uid://n210vvn63h4j" path="res://Assets/grass tiles 1. probieren.png" id="1_vadfg"]
-[ext_resource type="Script" uid="uid://c235xto7elhwq" path="res://Scripts/Tools/ToolWheel.cs" id="2_adcqc"]
-[ext_resource type="Texture2D" uid="uid://byes4sfr6o4er" path="res://Assets/Boden Sprite.png" id="2_l1hd3"]
-[ext_resource type="PackedScene" uid="uid://trp1f3kskh4v" path="res://Scenes/Player/player.tscn" id="3_adcqc"]
-[ext_resource type="Script" uid="uid://dxoaap4tmboq4" path="res://Scripts/World/World.cs" id="4_7staa"]
+[ext_resource type="Script" uid="uid://dxoaap4tmboq4" path="res://Scripts/World/World.cs" id="1_4xq7o"]
+[ext_resource type="Script" uid="uid://c235xto7elhwq" path="res://Scripts/Tools/ToolWheel.cs" id="2_wje8r"]
+[ext_resource type="Texture2D" uid="uid://n210vvn63h4j" path="res://Assets/grass tiles 1. probieren.png" id="3_jlm3r"]
+[ext_resource type="Texture2D" uid="uid://byes4sfr6o4er" path="res://Assets/Boden Sprite.png" id="4_t15sw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fo5ed"]
-texture = ExtResource("1_vadfg")
+texture = ExtResource("3_jlm3r")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -26,7 +25,7 @@ texture = ExtResource("1_vadfg")
 3:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ukr8"]
-texture = ExtResource("2_l1hd3")
+texture = ExtResource("4_t15sw")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -44,7 +43,7 @@ sources/2 = SubResource("TileSetAtlasSource_fo5ed")
 sources/3 = SubResource("TileSetAtlasSource_5ukr8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o06y3"]
-texture = ExtResource("2_l1hd3")
+texture = ExtResource("4_t15sw")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -61,7 +60,7 @@ texture = ExtResource("2_l1hd3")
 sources/0 = SubResource("TileSetAtlasSource_o06y3")
 
 [node name="World" type="Node2D" unique_id=1574327244]
-script = ExtResource("4_7staa")
+script = ExtResource("1_4xq7o")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1365810707]
 
@@ -71,7 +70,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("2_adcqc")
+script = ExtResource("2_wje8r")
 Radius = 150.0
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1571779451]
@@ -83,8 +82,3 @@ tile_map_data = PackedByteArray("AAABAAwAAAADAAAAAAAHAAsAAAADAAAAAAAIAAgAAAADAAA
 tile_set = SubResource("TileSet_y52qw")
 
 [node name="Buildings" type="TileMapLayer" parent="." unique_id=841175572]
-
-[node name="Entities" type="Node" parent="." unique_id=1393571331]
-
-[node name="Player" parent="Entities" unique_id=680326555 instance=ExtResource("3_adcqc")]
-position = Vector2(19, 11)

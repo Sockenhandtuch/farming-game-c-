@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d0ua5lx3nsg7x"]
+
+[ext_resource type="Script" uid="uid://okddmppy2x4x" path="res://Farming C#/SceneManager.cs" id="1_mk1ro"]
+
+[node name="SceneManager" type="Node" unique_id=1824363122]
+script = ExtResource("1_mk1ro")
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=191879285]
+
+[node name="FadeRect" type="ColorRect" parent="FadeLayer" unique_id=168645335]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

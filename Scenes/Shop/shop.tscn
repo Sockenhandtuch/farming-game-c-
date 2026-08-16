@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bfw4x67hxvxp"]
+
+[ext_resource type="Script" uid="uid://b0rk17d8v14i6" path="res://Laden/ShopManager.cs" id="1_2shtd"]
+[ext_resource type="Script" uid="uid://j8nfpwiy8ch1" path="res://Laden/ShopUI.cs" id="2_io27d"]
+
+[node name="Shop" type="Node2D" unique_id=169420788]
+
+[node name="ShopManager" type="Node" parent="." unique_id=612335464]
+script = ExtResource("1_2shtd")
+
+[node name="UI" type="Control" parent="." unique_id=729690245]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_io27d")
+
+[node name="HintLabel" type="Label" parent="UI" unique_id=1195124656]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ResultLabel" type="Label" parent="UI" unique_id=415446241]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://vj1u3dnxjo6"]
+
+[ext_resource type="Script" uid="uid://c235xto7elhwq" path="res://Scripts/Tools/ToolWheel.cs" id="1_dhil7"]
+
+[node name="ToolWheel" type="Control" unique_id=1027319493]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dhil7")

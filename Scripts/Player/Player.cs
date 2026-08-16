@@ -24,6 +24,8 @@ namespace FarmGame.Player
 
         public override void _Ready()
         {
+            Console.WriteLine("Player REady Läuft");
+            
             animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
             _toolController = GetNode<ToolController>("ToolController");
             interactionPoint = GetNode<Marker2D>("InteractionPoint");
@@ -49,6 +51,7 @@ namespace FarmGame.Player
 
             if (@event is InputEventMouseButton mb && mb.ButtonIndex == MouseButton.Right && mb.Pressed)
             {
+                Console.WriteLine("Rechtsklick erkannt");
                 _toolWheel.Open(Tools);
             }
         }

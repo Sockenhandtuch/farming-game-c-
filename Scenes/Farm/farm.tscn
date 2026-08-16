@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c3w7fnmyixw4f"]
+
+[ext_resource type="Script" uid="uid://cvjykbmlkn20m" path="res://Farming C#/Farm.cs" id="1_w1mcr"]
+[ext_resource type="PackedScene" uid="uid://trp1f3kskh4v" path="res://Scenes/Player/player.tscn" id="2_141lg"]
+[ext_resource type="Script" uid="uid://bifjgot4tu3r3" path="res://Farming C#/ShopDoor.cs" id="3_5ss4g"]
+[ext_resource type="PackedScene" uid="uid://vj1u3dnxjo6" path="res://Scenes/UI/tool_wheel.tscn" id="3_141lg"]
+[ext_resource type="Texture2D" uid="uid://sd3cjp45i0ah" path="res://Assets/ShopDoor.png" id="4_xnjdx"]
+[ext_resource type="Script" uid="uid://72gg5q0e1gds" path="res://Farming C#/DungeonEntrance.cs" id="5_hrv6m"]
+[ext_resource type="Texture2D" uid="uid://cby7hqobdgxv" path="res://Assets/DungeonEntrance.png" id="6_eiksu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1wp4"]
+size = Vector2(16, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b873"]
+size = Vector2(15, 15)
+
+[node name="Farm" type="Node2D" unique_id=586032728]
+script = ExtResource("1_w1mcr")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1672229335]
+
+[node name="ToolWheel" parent="UI" unique_id=1027319493 instance=ExtResource("3_141lg")]
+unique_name_in_owner = true
+mouse_filter = 2
+
+[node name="Ground" type="CanvasLayer" parent="." unique_id=466615016]
+
+[node name="Player" parent="." unique_id=680326555 instance=ExtResource("2_141lg")]
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1973840298]
+
+[node name="Default" type="Marker2D" parent="SpawnPoints" unique_id=816945424]
+position = Vector2(0, 45)
+
+[node name="ShopExit" type="Marker2D" parent="SpawnPoints" unique_id=1890931593]
+position = Vector2(128, -57)
+
+[node name="DungeonExit" type="Marker2D" parent="SpawnPoints" unique_id=790459884]
+position = Vector2(-131, -59)
+
+[node name="ShopDoor" type="Area2D" parent="." unique_id=933078440]
+script = ExtResource("3_5ss4g")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShopDoor" unique_id=1932909704]
+position = Vector2(126, -93)
+scale = Vector2(0.47949216, 0.52099603)
+texture = ExtResource("4_xnjdx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopDoor" unique_id=1714413539]
+position = Vector2(126, -87)
+shape = SubResource("RectangleShape2D_o1wp4")
+
+[node name="DungeonEntrance" type="Area2D" parent="." unique_id=204740697]
+script = ExtResource("5_hrv6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="DungeonEntrance" unique_id=1062402389]
+position = Vector2(-130, -93)
+scale = Vector2(0.34375, 0.375)
+texture = ExtResource("6_eiksu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonEntrance" unique_id=1561115916]
+position = Vector2(-132, -89)
+shape = SubResource("RectangleShape2D_2b873")
